@@ -148,7 +148,9 @@
         if (super.confirm) {
           super.confirm();
         } else {
-          this._setDate(new Date(this.year, this.month - 1, this.day, this.hours, this.minutes, this.seconds, this.milliseconds));
+          var d = new Date(this.year, this.month - 1, this.day, this.hours, this.minutes, this.seconds, this.milliseconds);
+          d.setFullYear(this.year);
+          this._setDate(d);
         }
         if (this.close) {
           this.close();
